@@ -2,6 +2,7 @@ import EventSummary from "../../components/event-detail/EventSummary";
 import EventLogistics from "../../components/event-detail/EventLogistics";
 import EventContent from "../../components/event-detail/EventContent";
 import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
+import Head from "next/head";
 
 const EventDetailPage = (props) => {
 
@@ -18,6 +19,9 @@ const EventDetailPage = (props) => {
 
     return(
         <>
+            <Head>
+                <title>{event.title}</title>
+            </Head>
             <EventSummary title={event.title}/>
             <EventLogistics date={event.date} address={event.location} image={event.image} imageAlt={event.title}/>
             <EventContent>

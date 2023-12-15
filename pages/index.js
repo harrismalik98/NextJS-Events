@@ -4,9 +4,7 @@ import { getFeaturedEvents } from "../helpers/api-util";
 const HomePage = (props) => {
 
     return(
-        <>
-            <EventList items={props.events}/>
-        </>
+        <EventList items={props.events}/>
     )
 }
 
