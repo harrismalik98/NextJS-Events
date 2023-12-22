@@ -1,10 +1,15 @@
 import EventList from "../components/events/EventList";
+import NewsletterRegistration from "../components/input/NewsletterRegistration";
 import { getFeaturedEvents } from "../helpers/api-util";
 
 const HomePage = (props) => {
 
     return(
-        <EventList items={props.events}/>
+        <>
+            <NewsletterRegistration />
+            <EventList items={props.events}/>
+        </>
+        
     )
 }
 
