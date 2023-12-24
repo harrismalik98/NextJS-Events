@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import MainHeader from "./MainHeader";
+import NotificationContext from "../../store/NotificationContext";
+import Notification from "../UI/Notification";
 
 const Layout = (props) => {
+
+    const notificationCtx = useContext(NotificationContext);
+    const activeNotification = notificationCtx.notification;
 
     return(
         <>
@@ -8,6 +14,7 @@ const Layout = (props) => {
             <main>
                 {props.children}
             </main>
+            {activeNotification && <Notification title={activeNotification.title} message={activeNotification.message} status={activeNotification.status}/>}
         </>
     )
 }
