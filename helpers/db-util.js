@@ -3,11 +3,7 @@ import mongoose from "mongoose";
 export const connectDB = async() => {
     try
     {
-        await mongoose.connect("mongodb+srv://harris27061998:admin123@cluster0.zmzyzqn.mongodb.net/nextjsevents", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-
+        await mongoose.connect("mongodb+srv://harris27061998:admin123@cluster0.zmzyzqn.mongodb.net/nextjsevents");
         console.log("MongoDB Connected");
     }
     catch(error)
@@ -19,7 +15,7 @@ export const connectDB = async() => {
 export const insertDocument = async (collect, doc) => {
     try
     {
-        connectDB();
+        await connectDB();
         const db = mongoose.connection;
         const collection = db.collection(collect);
         const result = await collection.insertOne(doc);
@@ -34,7 +30,7 @@ export const insertDocument = async (collect, doc) => {
 export const getAllDocuments = async (collect, findBy, sort) => {
     try
     {
-        connectDB();
+        await connectDB();
         const db = mongoose.connection;
         const collection = db.collection(collect);
         const result = await collection.find(findBy).sort(sort).toArray();
